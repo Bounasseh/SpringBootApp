@@ -5,13 +5,12 @@ def ScriptLauncher(command) {
 pipeline {
     agent any
 
-    stage('Checkout') {
-        steps {
-            checkout scm
-        }
-    }
-
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
                 ScriptLauncher('mvn clean')
