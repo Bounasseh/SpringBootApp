@@ -5,6 +5,12 @@ def ScriptLauncher(command) {
 pipeline {
     agent any
 
+    stage('Checkout') {
+        steps {
+            checkout scm
+        }
+    }
+
     stages {
         stage('Build') {
             steps {
