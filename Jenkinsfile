@@ -1,13 +1,14 @@
+def ScriptLauncher(command) {
+    bat command
+}
+
 pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
-                dir('D:/Carrière/Learn/Jenkins/Projects/SpringBootApp') {
-                    // Construire le projet avec Maven
-                    sh 'mvn clean install'
-                }
+                ScriptLauncher('mvn clean')
             }
         }
     }
